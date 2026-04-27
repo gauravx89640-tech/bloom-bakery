@@ -1,14 +1,23 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Playfair_Display, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const playfair = Playfair_Display({ 
+  subsets: ["latin"],
+  variable: '--font-playfair',
+  display: 'swap',
+});
+
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'Bloom Bakery | Life\'s Too Short For Bad Cake',
+  description: 'Bloom Bakery - Artisan cakes, cupcakes, and desserts made with love. Family owned, small batch, with many vegan options.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -35,10 +44,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${playfair.variable} ${inter.variable} bg-background`}>
       <body className="font-sans antialiased">
         {children}
-        <Analytics />
+        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )
