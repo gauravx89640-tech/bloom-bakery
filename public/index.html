@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloom Bakery | Life's Too Short For Bad Cake</title>
+  <meta name="description" content="Bloom Bakery - Artisan cakes, cupcakes, and desserts made with love. Family owned, small batch, with many vegan options.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    :root {
+      --coral-pink: #F8A5A5;
+      --light-coral: #FBCACA;
+      --cream: #FDF8F3;
+      --dark-coral: #E88B8B;
+      --red-accent: #D64545;
+      --foreground: #1A1A1A;
+      --muted-foreground: #666666;
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--coral-pink);
+      color: var(--foreground);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .font-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    /* Announcement Bar */
+    .announcement-bar {
+      background-color: var(--foreground);
+      padding: 0.5rem 0;
+      text-align: center;
+    }
+    
+    .announcement-bar p {
+      color: white;
+      font-size: 0.875rem;
+    }
+    
+    /* Navigation */
+    .navigation {
+      background-color: var(--coral-pink);
+      padding: 1rem 0;
+    }
+    
+    .nav-container {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 3rem;
+    }
+    
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+    
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    
+    .nav-links a:hover {
+      opacity: 0.8;
+    }
+    
+    .logo {
+      margin: 0 2rem;
+      width: 3rem;
+      height: 3rem;
+      border: 2px solid var(--foreground);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .logo svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    
+    /* Mobile nav */
+    .mobile-nav {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    @media (min-width: 768px) {
+      .mobile-nav {
+        display: none;
+      }
+    }
+    
+    .mobile-logo {
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 2px solid var(--foreground);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .menu-btn {
+      background: none;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+    
+    .menu-btn svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background-color: var(--coral-pink);
+      padding: 2rem 0 0;
+    }
+    
+    .hero-content {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 4rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .hero h1 {
+        font-size: 4.5rem;
+      }
+    }
+    
+    .shop-text {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-btn {
+      border: 2px solid var(--foreground);
+      background: transparent;
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    
+    .hero-btn:hover {
+      background-color: var(--foreground);
+      color: var(--coral-pink);
+    }
+    
+    .hero-images {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    @media (min-width: 768px) {
+      .hero-images {
+        gap: 1.5rem;
+      }
+    }
+    
+    .hero-img-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .hero-img-1, .hero-img-3 {
+      width: 8rem;
+      height: 12rem;
+    }
+    
+    .hero-img-2 {
+      width: 9rem;
+      height: 14rem;
+    }
+    
+    @media (min-width: 768px) {
+      .hero-img-1, .hero-img-3 {
+        width: 11rem;
+        height: 16rem;
+      }
+      .hero-img-2 {
+        width: 12rem;
+        height: 18rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .hero-img-1, .hero-img-3 {
+        width: 12rem;
+        height: 18rem;
+      }
+      .hero-img-2 {
+        width: 14rem;
+        height: 20rem;
+      }
+    }
+    
+    /* Marquee Ticker */
+    .marquee {
+      background-color: var(--light-coral);
+      padding: 0.75rem 0;
+      overflow: hidden;
+    }
+    
+    .marquee-content {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      animation: marquee 20s linear infinite;
+    }
+    
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-33.33%); }
+    }
+    
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+    
+    .marquee-item svg {
+      width: 1rem;
+      height: 1rem;
+    }
+    
+    .marquee-item span {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    /* Sweet Things Section */
+    .sweet-things {
+      background-color: var(--cream);
+      padding: 4rem 0;
+    }
+    
+    .sweet-things-content {
+      max-width: 64rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .sweet-things h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-style: italic;
+      margin-bottom: 3rem;
+    }
+    
+    @media (min-width: 768px) {
+      .sweet-things h2 {
+        font-size: 3rem;
+      }
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+      }
+    }
+    
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .product-image {
+      width: 100%;
+      max-width: 180px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #eee;
+      margin-bottom: 1rem;
+    }
+    
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+    
+    .product-card h3 {
+      text-align: center;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--coral-pink);
+    }
+    
+    @media (min-width: 768px) {
+      .product-card h3 {
+        font-size: 1.5rem;
+      }
+    }
+    
+    /* Fresh Drops Section */
+    .fresh-drops {
+      background-color: var(--cream);
+      padding: 4rem 0;
+    }
+    
+    .fresh-drops-content {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: grid;
+      gap: 3rem;
+    }
+    
+    @media (min-width: 1024px) {
+      .fresh-drops-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .fresh-drops h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--red-accent);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .fresh-drops h2 {
+        font-size: 3rem;
+      }
+    }
+    
+    .fresh-drops p {
+      color: var(--muted-foreground);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .feature-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border: 1px solid var(--red-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .feature-icon svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--red-accent);
+    }
+    
+    .feature-item span {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--red-accent);
+    }
+    
+    .image-collage {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .collage-img-tall {
+      grid-row: span 2;
+      aspect-ratio: 3/4;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    
+    .collage-img-tall img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .collage-img-small {
+      aspect-ratio: 1;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    
+    .collage-img-small img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Order Online Section */
+    .order-online {
+      background-color: var(--light-coral);
+      padding: 4rem 0;
+      text-align: center;
+    }
+    
+    .order-online-content {
+      max-width: 32rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .order-icon {
+      margin-bottom: 1rem;
+    }
+    
+    .order-icon svg {
+      width: 2rem;
+      height: 2rem;
+      margin: 0 auto;
+    }
+    
+    .order-online h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .order-online h2 {
+        font-size: 2.25rem;
+      }
+    }
+    
+    .order-online p {
+      color: var(--muted-foreground);
+      margin-bottom: 1.5rem;
+    }
+    
+    .doordash-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FF3008;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    
+    .doordash-btn:hover {
+      background-color: #E02B07;
+    }
+    
+    .doordash-btn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-right: 0.5rem;
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      background-color: var(--cream);
+      padding: 4rem 0;
+    }
+    
+    .testimonials-content {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .testimonials h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+    }
+    
+    @media (min-width: 768px) {
+      .testimonials h2 {
+        font-size: 3rem;
+      }
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    .testimonials-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .testimonial-card {
+      background-color: #F5EDE6;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+    }
+    
+    .testimonial-card p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--muted-foreground);
+      margin-bottom: 1rem;
+    }
+    
+    .testimonial-card .author {
+      font-weight: 500;
+      color: var(--foreground);
+    }
+    
+    .testimonial-image {
+      aspect-ratio: 4/3;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      background-color: var(--light-coral);
+    }
+    
+    .testimonial-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--foreground);
+      color: white;
+    }
+    
+    .footer-ticker {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.75rem 0;
+    }
+    
+    .footer-ticker-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+    
+    .footer-ticker-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.8;
+    }
+    
+    .footer-ticker-item svg {
+      width: 1rem;
+      height: 1rem;
+    }
+    
+    .footer-ticker-item span {
+      font-size: 0.875rem;
+    }
+    
+    .footer-main {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .footer-logo {
+      width: 3rem;
+      height: 3rem;
+      border: 2px solid white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-logo svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    
+    .footer-tagline {
+      font-style: italic;
+      opacity: 0.8;
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-contact {
+      font-size: 0.875rem;
+      opacity: 0.6;
+    }
+    
+    .footer-contact p {
+      margin-bottom: 0.25rem;
+    }
+    
+    .footer-section h3 {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.4;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+    }
+    
+    .footer-section li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-section a {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    
+    .footer-section a:hover {
+      opacity: 1;
+    }
+    
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    
+    .footer-social a {
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    
+    .footer-social a:hover {
+      opacity: 1;
+    }
+    
+    .footer-social svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    
+    .back-to-top {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      opacity: 0.6;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    
+    .back-to-top:hover {
+      opacity: 1;
+    }
+    
+    .back-to-top svg {
+      width: 1rem;
+      height: 1rem;
+    }
+    
+    .footer-large-text {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .footer-large-text h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      opacity: 0.2;
+    }
+    
+    @media (min-width: 768px) {
+      .footer-large-text h2 {
+        font-size: 4rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .footer-large-text h2 {
+        font-size: 5rem;
+      }
+    }
+    
+    .footer-copyright {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 0;
+      text-align: center;
+    }
+    
+    .footer-copyright p {
+      font-size: 0.75rem;
+      opacity: 0.4;
+    }
+    
+    .footer-copyright .designed-by {
+      margin-top: 0.5rem;
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <p>$5 Thursdays! All cupcakes discounted to $5 at Stand</p>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navigation">
+    <div class="nav-container">
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/" class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C13.5 2 15 3.5 15 5.5C15 7 14 8 13 8.5V10H11V8.5C10 8 9 7 9 5.5C9 3.5 10.5 2 12 2Z" />
+            <path d="M8 10H16V12C16 14 14.5 16 12 16C9.5 16 8 14 8 12V10Z" />
+            <path d="M10 16V20M14 16V20" />
+            <path d="M8 20H16" />
+          </svg>
+        </a>
+        <a href="/location">Location</a>
+        <a href="/offerings">Offerings</a>
+      </div>
+      <div class="mobile-nav">
+        <a href="/" class="mobile-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 1.25rem; height: 1.25rem;">
+            <path d="M12 2C13.5 2 15 3.5 15 5.5C15 7 14 8 13 8.5V10H11V8.5C10 8 9 7 9 5.5C9 3.5 10.5 2 12 2Z" />
+            <path d="M8 10H16V12C16 14 14.5 16 12 16C9.5 16 8 14 8 12V10Z" />
+            <path d="M10 16V20M14 16V20" />
+            <path d="M8 20H16" />
+          </svg>
+        </a>
+        <button class="menu-btn" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="font-serif">
+        <span>Life's Too Short</span>
+        <span>For Bad Cake!</span>
+      </h1>
+      <p class="shop-text">Shop at Bloom Bakery</p>
+      <div class="hero-buttons">
+        <a href="/order" class="hero-btn">Order Request Form</a>
+        <a href="/about" class="hero-btn">About Us</a>
+      </div>
+      <div class="hero-images">
+        <div class="hero-img-wrapper hero-img-1">
+          <img src="images/cupcake-hero-1.jpg" alt="Colorful cupcake with sprinkles">
+        </div>
+        <div class="hero-img-wrapper hero-img-2">
+          <img src="images/cupcake-hero-2.jpg" alt="Vanilla cupcake with candy toppings">
+        </div>
+        <div class="hero-img-wrapper hero-img-3">
+          <img src="images/cupcake-hero-3.jpg" alt="Red velvet cupcake">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Ticker -->
+  <div class="marquee">
+    <div class="marquee-content">
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Family Owned</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <span>Small Batch</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        <span>Many Vegan Options</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        <span>Daily Treats</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Rotating Seasonal Menu</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <span>Custom Cakes</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span>Weddings & Events</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Family Owned</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <span>Small Batch</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        <span>Many Vegan Options</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        <span>Daily Treats</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Rotating Seasonal Menu</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <span>Custom Cakes</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span>Weddings & Events</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Family Owned</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <span>Small Batch</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        <span>Many Vegan Options</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        <span>Daily Treats</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Rotating Seasonal Menu</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <span>Custom Cakes</span>
+      </div>
+      <div class="marquee-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <span>Weddings & Events</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sweet Things Section -->
+  <section class="sweet-things">
+    <div class="sweet-things-content">
+      <h2 class="font-serif">Sweet Things</h2>
+      <div class="products-grid">
+        <a href="/cupcakes" class="product-card">
+          <div class="product-image">
+            <img src="images/cupcakes-product.jpg" alt="Cupcakes">
+          </div>
+          <h3 class="font-serif">Cupcakes</h3>
+        </a>
+        <a href="/desserts" class="product-card">
+          <div class="product-image">
+            <img src="images/desserts-product.jpg" alt="Desserts">
+          </div>
+          <h3 class="font-serif">Desserts</h3>
+        </a>
+        <a href="/custom-cakes" class="product-card">
+          <div class="product-image">
+            <img src="images/custom-cakes-product.jpg" alt="Custom Cakes">
+          </div>
+          <h3 class="font-serif">Custom Cakes</h3>
+        </a>
+        <a href="/wedding-cakes" class="product-card">
+          <div class="product-image">
+            <img src="images/wedding-cakes-product.jpg" alt="Wedding Cakes">
+          </div>
+          <h3 class="font-serif">Wedding Cakes</h3>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fresh Drops Section -->
+  <section class="fresh-drops">
+    <div class="fresh-drops-content">
+      <div>
+        <h2 class="font-serif">Fresh Drops.<br>Sweet Bites.<br>Local Love.</h2>
+        <p>At Bloom Bakery, love goes into every batch and every interaction — you can taste it in every bite. We're all about creating an experience, with a crave-worthy menu of rotating flavors that keeps you coming back for more.</p>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            </div>
+            <span>Vegan Friendly Options</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <span>Custom Made Cakes</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <span>Community Focused</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </div>
+            <span>Family Run</span>
+          </div>
+        </div>
+      </div>
+      <div class="image-collage">
+        <div class="collage-img-tall">
+          <img src="images/bakery-display-1.jpg" alt="Bakery interior">
+        </div>
+        <div class="collage-img-small">
+          <img src="images/bakery-display-2.jpg" alt="Cupcake decorating">
+        </div>
+        <div class="collage-img-small">
+          <img src="images/bakery-display-3.jpg" alt="Cupcake display">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Online Section -->
+  <section class="order-online">
+    <div class="order-online-content">
+      <div class="order-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      </div>
+      <h2 class="font-serif">Order Online</h2>
+      <p>Get your favorites delivered fast.</p>
+      <a href="https://doordash.com" target="_blank" rel="noopener noreferrer" class="doordash-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23.071 8.409a6.09 6.09 0 00-5.396-3.228H.584A.589.589 0 00.17 6.184L3.894 9.93a1.752 1.752 0 001.242.516h12.049a1.554 1.554 0 11.031 3.108H8.91a.589.589 0 00-.415 1.003l3.725 3.747a1.75 1.75 0 001.242.516h3.757c4.887 0 8.584-5.225 5.852-10.411z" />
+        </svg>
+        Order on DoorDash
+      </a>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="testimonials-content">
+      <h2 class="font-serif">What People<br>Love About Us</h2>
+      <div class="testimonials-grid">
+        <div class="testimonials-column">
+          <div class="testimonial-card">
+            <p>I might be addicted to Bloom Bakery's Oreo Brownies. Or maybe the Carrot cake Cupcakes. Seems no matter what treat I go to get for me and my family, I can't resist adding them to my order! No one complains when I bring home more Bloom Bakery's goodies than I said I was getting!</p>
+            <p class="author">Susan</p>
+          </div>
+          <div class="testimonial-image">
+            <img src="images/bakery-display-1.jpg" alt="Bakery lifestyle">
+          </div>
+        </div>
+        <div class="testimonials-column">
+          <div class="testimonial-image">
+            <img src="images/bakery-display-2.jpg" alt="Bakery treats">
+          </div>
+          <div class="testimonial-card">
+            <p>We cannot thank you enough for providing delicious desserts for our wedding guests! Another huge thank you for creating our dream cake that we will remember forever! Every detail matters on this big day & we love that you were apart of it!</p>
+            <p class="author">Hailey</p>
+          </div>
+        </div>
+        <div class="testimonials-column">
+          <div class="testimonial-card">
+            <p>My daughter and I stopped in to try the cupcakes along with a few other treats, and wow - these are the best carrot cake cupcakes we've ever had! Everything was absolutely delicious. Bloom Bakery is by far the best bakery in our area. We can't wait to come back and try more!</p>
+            <p class="author">Mary</p>
+          </div>
+          <div class="testimonial-image">
+            <img src="images/bakery-display-3.jpg" alt="Bakery atmosphere">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-ticker">
+      <div class="footer-ticker-content">
+        <div class="footer-ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Family Owned</span>
+        </div>
+        <div class="footer-ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          <span>Small Batch</span>
+        </div>
+        <div class="footer-ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          <span>Many Vegan Options</span>
+        </div>
+        <div class="footer-ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          <span>Daily Treats</span>
+        </div>
+        <div class="footer-ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Rotating Seasonal Menu</span>
+        </div>
+        <div class="footer-ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          <span>Custom Cakes</span>
+        </div>
+        <div class="footer-ticker-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          <span>Weddings & Events</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-main">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2C13.5 2 15 3.5 15 5.5C15 7 14 8 13 8.5V10H11V8.5C10 8 9 7 9 5.5C9 3.5 10.5 2 12 2Z" />
+              <path d="M8 10H16V12C16 14 14.5 16 12 16C9.5 16 8 14 8 12V10Z" />
+              <path d="M10 16V20M14 16V20" />
+              <path d="M8 20H16" />
+            </svg>
+          </div>
+          <p class="footer-tagline font-serif">Life's Too Short<br>For Bad Cake</p>
+          <div class="footer-contact">
+            <p>+1 (555) 123-4567</p>
+            <p>hello@bloombakery.com</p>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/location">Location</a></li>
+            <li><a href="/offerings">Offerings</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Offerings</h3>
+          <ul>
+            <li><a href="/cupcakes">Cupcakes</a></li>
+            <li><a href="/desserts">Desserts</a></li>
+            <li><a href="/custom-cakes">Custom Cakes</a></li>
+            <li><a href="/wedding-cakes">Wedding Cakes</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-large-text">
+      <h2 class="font-serif">Bloom Bakery</h2>
+    </div>
+    <div class="footer-copyright">
+      <p>2024 Bloom Bakery</p>
+      <p class="designed-by">designed by forge studio</p>
+    </div>
+  </footer>
+</body>
+</html>
